@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Solar System in A-Frame</title>
+    <script src="./script/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene>
+        
+        <a-assets>
+            <img id="sunTexture" src="texture/2k_sun.jpg">
+            <img id="mercuryTexture" src="texture/2k_mercury.jpg">
+            <img id="venusTexture" src="texture/2k_venus_surface.jpg">
+            <img id="earthTexture" src="texture/2k_earth_daymap.jpg">
+            <img id="marsTexture" src="texture/2k_mars.jpg">
+            <img id="jupiterTexture" src="texture/2k_jupiter.jpg">
+            <img id="saturnTexture" src="texture/2k_saturn.jpg">
+            <img id="saturnRing" src="texture/2k_saturn_ring_alpha.png">
+            <img id="uranusTexture" src="texture/2k_uranus.jpg">
+            <img id="neptuneTexture" src="texture/2k_neptune.jpg">
+            <img id="starsTexture" src="texture/2k_stars_milky_way.jpg">
+        </a-assets>
+
+        <!-- Background Stars -->
+        <a-sky src="#starsTexture"></a-sky>
+
+        <!-- Sun (Center) -->
+        <a-entity id="sun" 
+                  geometry="primitive: sphere; radius: 4" 
+                  material="src: #sunTexture; shader: flat" 
+                  position="0 0 0">
+        </a-entity>
+
+        <!-- Mercury Orbit -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+            <a-entity geometry="primitive: sphere; radius: 0.6" 
+                      material="src: #mercuryTexture; shader: flat" 
+                      position="5 0 0">
+            </a-entity>
+        </a-entity>
+
+        <!-- Venus Orbit -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 8000">
+            <a-entity geometry="primitive: sphere; radius: 0.95" 
+                      material="src: #venusTexture; shader: flat" 
+                      position="8 0 0">
+            </a-entity>
+        </a-entity>
+
+        <!-- Earth Orbit -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 10000">
+            <a-entity geometry="primitive: sphere; radius: 1.4" 
+                      material="src: #earthTexture; shader: flat" 
+                      position="12 0 0">
+            </a-entity>
+        </a-entity>
+
+        <!-- Mars Orbit -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 12000">
+            <a-entity geometry="primitive: sphere; radius: 0.9" 
+                      material="src: #marsTexture; shader: flat" 
+                      position="16 0 0">
+            </a-entity>
+        </a-entity>
+
+        <!-- Jupiter Orbit -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 20000">
+            <a-entity geometry="primitive: sphere; radius: 2.7" 
+                      material="src: #jupiterTexture; shader: flat" 
+                      position="20 0 0">
+            </a-entity>
+        </a-entity>
+
+        <!-- Saturn Orbit -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 24000">
+            <a-entity position="26 0 0">
+                <a-entity geometry="primitive: sphere; radius: 2" 
+                          material="src: #saturnTexture; shader: flat">
+                </a-entity>
+                <!-- Saturn Rings -->
+                <a-entity geometry="primitive: ring; radius-inner: 2.5; radius-outer: 3; theta-start: 0; theta-length: 360"
+                          material="src: #saturnRing; transparent: true"
+                          rotation="-90 0 0">
+                </a-entity>
+            </a-entity>
+        </a-entity>
+
+        <!-- Uranus Orbit -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 30000">
+            <a-entity geometry="primitive: sphere; radius: 1.6" 
+                      material="src: #uranusTexture; shader: flat" 
+                      position="32 0 0">
+            </a-entity>
+        </a-entity>
+
+        <!-- Neptune Orbit -->
+        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 35000">
+            <a-entity geometry="primitive: sphere; radius: 1.5" 
+                      material="src: #neptuneTexture; shader: flat" 
+                      position="38 0 0">
+            </a-entity>
+        </a-entity>
+
+        <!-- Camera -->
+        <a-entity camera position="0 10 60" look-controls></a-entity>
+    </a-scene>
+</body>
+</html>
